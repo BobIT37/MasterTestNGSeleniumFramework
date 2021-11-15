@@ -8,13 +8,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MyFirstTestCase {
+import com.masterframework.pom.BaseTest;
+
+public class MyFirstTestCase extends BaseTest{
 	
 	/* 
 	 * Error: “chromedriver” cannot be opened because the developer cannot be verified. Unable to launch the chrome browser
 	 * Navigate to chromedriver folder where you set
 	 * Execute in terminal following command after navigate to folder
 	 * xattr -d com.apple.quarantine chromedriver 
+	 * 
+	 * or
+	 * 
+	 * chmod +x chromedriver
 	 * 
 	 */
 	/**
@@ -26,10 +32,7 @@ public class MyFirstTestCase {
 	 */
 	@Test
 	public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "/Users/bobit/Documents/Drivers/chromedriver");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://askomdch.com");
-		driver.manage().window().maximize();
 		driver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
 		driver.findElement(By.id("woocommerce-product-search-field-0")).sendKeys("Blue");
 		driver.findElement(By.cssSelector("button[value='Search']")).click();
@@ -52,7 +55,6 @@ public class MyFirstTestCase {
 		driver.findElement(By.id("place_order")).click();
 		TimeUnit.SECONDS.sleep(3);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".woocommerce-notice")).getText(), "Thank you. Your order has been received.");
-		driver.quit();
 	}
 	
 	/**
