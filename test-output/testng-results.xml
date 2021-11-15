@@ -2,12 +2,12 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-15T14:21:52 EST" name="Default suite" finished-at="2021-11-15T14:22:21 EST" duration-ms="28180">
+  <suite started-at="2021-11-15T14:36:08 EST" name="Default suite" finished-at="2021-11-15T14:36:37 EST" duration-ms="28941">
     <groups>
     </groups>
-    <test started-at="2021-11-15T14:21:52 EST" name="Default test" finished-at="2021-11-15T14:22:21 EST" duration-ms="28180">
+    <test started-at="2021-11-15T14:36:08 EST" name="Default test" finished-at="2021-11-15T14:36:37 EST" duration-ms="28941">
       <class name="com.masterframework.MyFirstTestCase">
-        <test-method signature="loginAndCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.MyFirstTestCase@732c2a62]" started-at="2021-11-15T14:21:52 EST" name="loginAndCheckoutUsingDirectBankTransfer" finished-at="2021-11-15T14:22:21 EST" duration-ms="28157" status="PASS">
+        <test-method signature="loginAndCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.MyFirstTestCase@732c2a62]" started-at="2021-11-15T14:36:08 EST" name="loginAndCheckoutUsingDirectBankTransfer" finished-at="2021-11-15T14:36:37 EST" duration-ms="28919" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAndCheckoutUsingDirectBankTransfer -->
