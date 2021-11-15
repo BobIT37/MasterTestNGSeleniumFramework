@@ -17,7 +17,13 @@ public class MyFirstTestCase {
 	 * xattr -d com.apple.quarantine chromedriver 
 	 * 
 	 */
-	
+	/**
+	 * 
+	 * github: section_1
+	 * 
+	 * @throws InterruptedException
+	 * @author bobit
+	 */
 	@Test
 	public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/Users/bobit/Documents/Drivers/chromedriver");
@@ -35,6 +41,7 @@ public class MyFirstTestCase {
 		driver.findElement(By.cssSelector("a[title='View cart']")).click();
 		Assert.assertEquals(driver.findElement(By.cssSelector("td[class='product-name'] a")).getText(), "Blue Shoes");
 		driver.findElement(By.cssSelector(".checkout-button")).click();
+		
 		driver.findElement(By.id("billing_first_name")).sendKeys("demoTest");
 		driver.findElement(By.id("billing_last_name")).sendKeys("user");
 		driver.findElement(By.id("billing_address_1")).sendKeys("824 Belmont Ave");
@@ -46,7 +53,6 @@ public class MyFirstTestCase {
 		TimeUnit.SECONDS.sleep(3);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".woocommerce-notice")).getText(), "Thank you. Your order has been received.");
 		
-		
 	}
-
+	
 }
