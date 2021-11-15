@@ -5,7 +5,7 @@
     <classes>
       <class name="com.masterframework.MyFirstTestCase">
         <methods>
-          <include name="guestCheckoutUsingDirectBankTransfer"/>
+          <include name="loginAndCheckoutUsingDirectBankTransfer"/>
         </methods>
       </class> <!-- com.masterframework.MyFirstTestCase -->
     </classes>

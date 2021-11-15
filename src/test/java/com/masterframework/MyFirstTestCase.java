@@ -52,7 +52,6 @@ public class MyFirstTestCase {
 		driver.findElement(By.id("place_order")).click();
 		TimeUnit.SECONDS.sleep(3);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".woocommerce-notice")).getText(), "Thank you. Your order has been received.");
-		
 	}
-	
+
 }
