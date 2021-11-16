@@ -16,37 +16,21 @@ import com.masterframework.pom.pages.StorePage;
 
 public class MyFirstTestCase extends BaseTest{
 	
-	/* 
-	 * Error: “chromedriver” cannot be opened because the developer cannot be verified. Unable to launch the chrome browser
-	 * Navigate to chromedriver folder where you set
-	 * Execute in terminal following command after navigate to folder
-	 * xattr -d com.apple.quarantine chromedriver 
-	 * 
-	 * or
-	 * 
-	 * chmod +x chromedriver
-	 * 
-	 */
 	/**
 	 * 
-	 * github: section_1
+	 * Test: guestCheckoutUsingDirectBankTransfer
 	 * 
 	 * @throws InterruptedException
 	 * @author bobit
 	 */
 	@Test
 	public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
-		//driver.get("https://askomdch.com");
 		
 		StorePage storePage = new HomePage(driver).
 				load().
 				navigateToStoreUsingMenu().
 				search("Blue");
-//		HomePage homePage = new HomePage(driver);
-//		StorePage storePage = homePage.navigateToStoreUsingMenu();
-//		TimeUnit.SECONDS.sleep(3);
-//		storePage.search("Blue");
-//		TimeUnit.SECONDS.sleep(3);
+
 		Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 		storePage.clickAddToCartBtn("Blue Shoes");
 		TimeUnit.SECONDS.sleep(5);
@@ -67,15 +51,13 @@ public class MyFirstTestCase extends BaseTest{
 	
 	/**
 	 * 
-	 * github: section_2
+	 * Test: loginAndCheckoutUsingDirectBankTransfer
 	 * 
 	 * @throws InterruptedException
 	 * @author bobit
 	 */
 	@Test
 	public void loginAndCheckoutUsingDirectBankTransfer() throws InterruptedException {
-		
-		//driver.get("https://askomdch.com");
 		
 		StorePage storePage = new HomePage(driver).
 				load().
