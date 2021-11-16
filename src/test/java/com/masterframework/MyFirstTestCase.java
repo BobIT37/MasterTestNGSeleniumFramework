@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.masterframework.pom.BaseTest;
+import com.masterframework.pom.base.BaseTest;
 
 public class MyFirstTestCase extends BaseTest{
 	
@@ -34,6 +34,7 @@ public class MyFirstTestCase extends BaseTest{
 	public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
 		driver.get("https://askomdch.com");
 		driver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
+		TimeUnit.SECONDS.sleep(3);
 		driver.findElement(By.id("woocommerce-product-search-field-0")).sendKeys("Blue");
 		driver.findElement(By.cssSelector("button[value='Search']")).click();
 		TimeUnit.SECONDS.sleep(5);
@@ -53,7 +54,7 @@ public class MyFirstTestCase extends BaseTest{
 		driver.findElement(By.id("billing_email")).sendKeys("bobtery123@gmail.com");
 		TimeUnit.SECONDS.sleep(5);
 		driver.findElement(By.id("place_order")).click();
-		TimeUnit.SECONDS.sleep(3);
+		TimeUnit.SECONDS.sleep(6);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".woocommerce-notice")).getText(), "Thank you. Your order has been received.");
 	}
 	
