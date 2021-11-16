@@ -6,8 +6,8 @@
       <class name="com.masterframework.MyFirstTestCase">
         <methods>
           <include name="guestCheckoutUsingDirectBankTransfer"/>
-          <include name="quitDriver"/>
           <include name="startDriver"/>
+          <include name="quitDriver"/>
         </methods>
       </class> <!-- com.masterframework.MyFirstTestCase -->
     </classes>
