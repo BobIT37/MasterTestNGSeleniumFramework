@@ -1,5 +1,7 @@
 package com.masterframework;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -9,10 +11,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.masterframework.pom.base.BaseTest;
+import com.masterframework.pom.objects.BillingAddress;
+import com.masterframework.pom.objects.Products;
+import com.masterframework.pom.objects.User;
 import com.masterframework.pom.pages.CartPage;
 import com.masterframework.pom.pages.CheckoutPage;
 import com.masterframework.pom.pages.HomePage;
 import com.masterframework.pom.pages.StorePage;
+import com.masterframework.pom.utils.JacksonUtils;
 
 public class MyFirstTestCase extends BaseTest{
 	
@@ -22,29 +28,28 @@ public class MyFirstTestCase extends BaseTest{
 	 * 
 	 * @throws InterruptedException
 	 * @author bobit
+	 * @throws IOException 
 	 */
 	@Test
-	public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
+	public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException, IOException {
 		
+		BillingAddress billingAddress = JacksonUtils.deserializeJson("myBillingAddress.json", BillingAddress.class);
+	    Products product = new Products(1215);
+	    
 		StorePage storePage = new HomePage(driver).
 				load().
 				navigateToStoreUsingMenu().
 				search("Blue");
 
 		Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
-		storePage.clickAddToCartBtn("Blue Shoes");
+		storePage.clickAddToCartBtn(product.getName());
 		TimeUnit.SECONDS.sleep(5);
 		CartPage cartPage = storePage.clickViewCart();
-		Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
-		CheckoutPage checkoutPage = cartPage.checkout();
-		checkoutPage.
-					enterFirstName("demoTest").
-					enterLasttName("user").
-					enterAddressLineOne("824 Belmont Ave").
-					enterCity("North Haledon").
-					enterPostCode("94188").
-					enterEmail("bobtery123@gmail.com").			
-					placeOrder();
+		Assert.assertEquals(cartPage.getProductName(), product.getName());
+		CheckoutPage checkoutPage = cartPage.
+				checkout().
+				setBillingAddress(billingAddress).		
+				placeOrder();
 		TimeUnit.SECONDS.sleep(5);
 		Assert.assertEquals(checkoutPage.getNotice(), "Thank you. Your order has been received.");
 	}
@@ -55,10 +60,14 @@ public class MyFirstTestCase extends BaseTest{
 	 * 
 	 * @throws InterruptedException
 	 * @author bobit
+	 * @throws IOException 
 	 */
 	@Test
-	public void loginAndCheckoutUsingDirectBankTransfer() throws InterruptedException {
+	public void loginAndCheckoutUsingDirectBankTransfer() throws InterruptedException, IOException {
 		
+		BillingAddress billingAddress = JacksonUtils.deserializeJson("myBillingAddress.json", BillingAddress.class);
+	    Products product = new Products(1215);
+	    User user = new User("demousertest", "Test$123");
 		StorePage storePage = new HomePage(driver).
 				load().
 				navigateToStoreUsingMenu().
@@ -66,24 +75,19 @@ public class MyFirstTestCase extends BaseTest{
 		
 		Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 		
-		storePage.clickAddToCartBtn("Blue Shoes");
+		storePage.clickAddToCartBtn(product.getName());
 		TimeUnit.SECONDS.sleep(5);
 		CartPage cartPage = storePage.clickViewCart();
-		Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
+		Assert.assertEquals(cartPage.getProductName(), product.getName());
 		
 		CheckoutPage checkoutPage = cartPage.checkout();
 		checkoutPage.clickHereToLoginLink();
 		TimeUnit.SECONDS.sleep(3);
 		
 		checkoutPage.
-		            login("demousertest", "Test$123").
-					enterFirstName("demoTest").
-					enterLasttName("user").
-					enterAddressLineOne("824 Belmont Ave").
-					enterCity("North Haledon").
-					enterPostCode("94188").
-					enterEmail("bobtery123@gmail.com").			
-					placeOrder();
+		            login(user).
+		            setBillingAddress(billingAddress).
+	                placeOrder();
 		TimeUnit.SECONDS.sleep(5);
 		Assert.assertEquals(checkoutPage.getNotice(), "Thank you. Your order has been received.");
 	}

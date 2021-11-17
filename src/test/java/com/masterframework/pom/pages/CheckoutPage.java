@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.masterframework.pom.base.BasePage;
+import com.masterframework.pom.objects.BillingAddress;
+import com.masterframework.pom.objects.User;
 
 public class CheckoutPage extends BasePage{
 	
@@ -93,11 +95,21 @@ public class CheckoutPage extends BasePage{
 		return this;
 	}
 	
-	public CheckoutPage login(String username, String password) {
-		return enterUserName(username).
-			   enterPassword(password).
+	public CheckoutPage login(User user) {
+		return enterUserName(user.getUsername()).
+			   enterPassword(user.getPassword()).
 			   clickLoginBtn();
 	  
+	}
+	
+	public CheckoutPage setBillingAddress(BillingAddress billingAddress) throws InterruptedException {
+		return enterFirstName(billingAddress.getFirstname()).
+				enterLasttName(billingAddress.getLastname()).
+				enterAddressLineOne(billingAddress.getAddressLineOne()).
+				enterCity(billingAddress.getCity()).
+				enterPostCode(billingAddress.getPostalCode()).
+				enterEmail(billingAddress.getEmail());
+		
 	}
 
 }

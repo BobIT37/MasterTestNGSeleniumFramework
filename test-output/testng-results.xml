@@ -2,20 +2,20 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-16T13:51:16 EST" name="Default suite" finished-at="2021-11-16T13:51:43 EST" duration-ms="27183">
+  <suite started-at="2021-11-17T17:42:44 EST" name="Default suite" finished-at="2021-11-17T17:43:21 EST" duration-ms="36916">
     <groups>
     </groups>
-    <test started-at="2021-11-16T13:51:16 EST" name="Default test" finished-at="2021-11-16T13:51:43 EST" duration-ms="27183">
+    <test started-at="2021-11-17T17:42:44 EST" name="Default test" finished-at="2021-11-17T17:43:21 EST" duration-ms="36916">
       <class name="com.masterframework.MyFirstTestCase">
-        <test-method is-config="true" signature="startDriver()[pri:0, instance:com.masterframework.MyFirstTestCase@6631f5ca]" started-at="2021-11-16T13:51:16 EST" name="startDriver" finished-at="2021-11-16T13:51:18 EST" duration-ms="2061" status="PASS">
+        <test-method is-config="true" signature="startDriver()[pri:0, instance:com.masterframework.MyFirstTestCase@693fe6c9]" started-at="2021-11-17T17:42:44 EST" name="startDriver" finished-at="2021-11-17T17:42:46 EST" duration-ms="2219" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method signature="guestCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.MyFirstTestCase@6631f5ca]" started-at="2021-11-16T13:51:18 EST" name="guestCheckoutUsingDirectBankTransfer" finished-at="2021-11-16T13:51:43 EST" duration-ms="25004" status="PASS">
+        <test-method signature="loginAndCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.MyFirstTestCase@693fe6c9]" started-at="2021-11-17T17:42:46 EST" name="loginAndCheckoutUsingDirectBankTransfer" finished-at="2021-11-17T17:43:21 EST" duration-ms="34581" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- guestCheckoutUsingDirectBankTransfer -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.masterframework.MyFirstTestCase@6631f5ca]" started-at="2021-11-16T13:51:43 EST" name="quitDriver" finished-at="2021-11-16T13:51:43 EST" duration-ms="93" status="PASS">
+        </test-method> <!-- loginAndCheckoutUsingDirectBankTransfer -->
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.masterframework.MyFirstTestCase@693fe6c9]" started-at="2021-11-17T17:43:21 EST" name="quitDriver" finished-at="2021-11-17T17:43:21 EST" duration-ms="92" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->

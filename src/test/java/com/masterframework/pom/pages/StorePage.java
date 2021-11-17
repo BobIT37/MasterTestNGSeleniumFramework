@@ -19,6 +19,7 @@ public class StorePage extends BasePage{
 	}
 	
 	public StorePage search(String txt) throws InterruptedException {
+		TimeUnit.SECONDS.sleep(5);
 		enterTextInSearchFld(txt).clickSearchBtn();
 		return this;
 	}
