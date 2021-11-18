@@ -2,6 +2,7 @@ package com.masterframework.pom.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.masterframework.pom.base.BasePage;
 
@@ -16,11 +17,12 @@ public class HomePage extends BasePage{
 	
 	public HomePage load() {
 		load("/");
+		wait.until(ExpectedConditions.titleContains("AskOmDch"));
 		return this;
 	}
 	
 	public StorePage navigateToStoreUsingMenu() {
-		driver.findElement(storeMenuLink).click();
+		wait.until(ExpectedConditions.elementToBeClickable(storeMenuLink)).click();
 		return new StorePage(driver);
 	}
 

@@ -38,19 +38,19 @@ public class MyFirstTestCase extends BaseTest{
 	    
 		StorePage storePage = new HomePage(driver).
 				load().
-				navigateToStoreUsingMenu().
-				search("Blue");
-
+				navigateToStoreUsingMenu();
+		storePage.isLoaded();		
+		storePage.search("Blue");
+		TimeUnit.SECONDS.sleep(5);
 		Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 		storePage.clickAddToCartBtn(product.getName());
-		TimeUnit.SECONDS.sleep(5);
 		CartPage cartPage = storePage.clickViewCart();
+		cartPage.isLoaded();
 		Assert.assertEquals(cartPage.getProductName(), product.getName());
 		CheckoutPage checkoutPage = cartPage.
 				checkout().
 				setBillingAddress(billingAddress).		
 				placeOrder();
-		TimeUnit.SECONDS.sleep(5);
 		Assert.assertEquals(checkoutPage.getNotice(), "Thank you. Your order has been received.");
 	}
 	
@@ -73,22 +73,23 @@ public class MyFirstTestCase extends BaseTest{
 				navigateToStoreUsingMenu().
 				search("Blue");
 		
+		TimeUnit.SECONDS.sleep(5);
 		Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 		
 		storePage.clickAddToCartBtn(product.getName());
-		TimeUnit.SECONDS.sleep(5);
+
 		CartPage cartPage = storePage.clickViewCart();
 		Assert.assertEquals(cartPage.getProductName(), product.getName());
 		
 		CheckoutPage checkoutPage = cartPage.checkout();
 		checkoutPage.clickHereToLoginLink();
-		TimeUnit.SECONDS.sleep(3);
+
 		
 		checkoutPage.
 		            login(user).
 		            setBillingAddress(billingAddress).
 	                placeOrder();
-		TimeUnit.SECONDS.sleep(5);
+
 		Assert.assertEquals(checkoutPage.getNotice(), "Thank you. Your order has been received.");
 	}
 

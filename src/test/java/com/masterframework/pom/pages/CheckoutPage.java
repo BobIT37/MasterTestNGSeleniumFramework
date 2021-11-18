@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.masterframework.pom.base.BasePage;
 import com.masterframework.pom.objects.BillingAddress;
@@ -24,74 +26,84 @@ public class CheckoutPage extends BasePage{
 	private final By usernameFld = By.id("username");
 	private final By passwordFld = By.id("password");
 	private final By loginBtn = By.name("login");
+	private final By overlay = By.cssSelector(".blockUI.blockOverlay");
 	
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
 	}
 	
 	public CheckoutPage enterFirstName(String firstName) {
-		driver.findElement(firstnameFld).clear();
-		driver.findElement(firstnameFld).sendKeys(firstName);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(firstnameFld));
+		element.clear();
+		element.sendKeys(firstName);
 		return this;
 	}
 	
 	public CheckoutPage enterLasttName(String lastName) {
-		driver.findElement(lastnameFld).clear();
-		driver.findElement(lastnameFld).sendKeys(lastName);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(lastnameFld));
+		element.clear();
+		element.sendKeys(lastName);
 		return this;
 	}
 	
 	public CheckoutPage enterAddressLineOne(String addressLineOne) {
-		driver.findElement(addressLineOneFld).clear();
-		driver.findElement(addressLineOneFld).sendKeys(addressLineOne);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(addressLineOneFld));
+		element.clear();
+		element.sendKeys(addressLineOne);
 		return this;
 	}
 	
 	public CheckoutPage enterCity(String city) {
-		driver.findElement(billingCityFld).clear();
-		driver.findElement(billingCityFld).sendKeys(city);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(billingCityFld));
+		element.clear();
+		element.sendKeys(city);;
 		return this;
 	}
 	
 	public CheckoutPage enterPostCode(String postCode) {
-		driver.findElement(billingPostCodeFld).clear();
-		driver.findElement(billingPostCodeFld).sendKeys(postCode);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(billingPostCodeFld));
+		element.clear();
+		element.sendKeys(postCode);
 		return this;
 	}
 	
 	public CheckoutPage enterEmail(String email) throws InterruptedException {
-		driver.findElement(billingEmailFld).clear();
-		driver.findElement(billingEmailFld).sendKeys(email);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(billingEmailFld));
+		element.clear();
+		element.sendKeys(email);;
 		TimeUnit.SECONDS.sleep(5);
 		return this;
 	}
 	
 	public CheckoutPage placeOrder() {
+		waitForOverlaysToDisappear(overlay);
 		driver.findElement(placeOrderBtn).click();
 		return this;
 	}
 	
 	public String getNotice() {
-		return driver.findElement(successNotice).getText();
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(successNotice)).getText();
 	}
 	
 	public CheckoutPage clickHereToLoginLink() {
-		driver.findElement(clickHereToLoginLink).click();
+		wait.until(ExpectedConditions.elementToBeClickable(clickHereToLoginLink)).click();
 		return this;
 	}
 	
 	public CheckoutPage enterUserName(String username) {
-		driver.findElement(usernameFld).sendKeys(username);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameFld));
+		element.sendKeys(username);
 		return this;
 	}
 	
 	public CheckoutPage enterPassword(String password) {
-		driver.findElement(passwordFld).sendKeys(password);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordFld));
+		element.sendKeys(password);
 		return this;
 	}
 	
 	public CheckoutPage clickLoginBtn() {
-		driver.findElement(loginBtn).click();
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
 		return this;
 	}
 	
