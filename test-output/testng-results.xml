@@ -2,24 +2,24 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-18T12:16:53 EST" name="Default suite" finished-at="2021-11-18T12:17:15 EST" duration-ms="21360">
+  <suite started-at="2021-11-19T15:29:15 EST" name="Default suite" finished-at="2021-11-19T15:29:34 EST" duration-ms="19581">
     <groups>
     </groups>
-    <test started-at="2021-11-18T12:16:53 EST" name="Default test" finished-at="2021-11-18T12:17:15 EST" duration-ms="21360">
-      <class name="com.masterframework.MyFirstTestCase">
-        <test-method is-config="true" signature="startDriver()[pri:0, instance:com.masterframework.MyFirstTestCase@693fe6c9]" started-at="2021-11-18T12:16:53 EST" name="startDriver" finished-at="2021-11-18T12:16:56 EST" duration-ms="2090" status="PASS">
+    <test started-at="2021-11-19T15:29:15 EST" name="Default test" finished-at="2021-11-19T15:29:34 EST" duration-ms="19581">
+      <class name="com.masterframework.pom.tests.MyFirstTestCase">
+        <test-method is-config="true" signature="startDriver()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@15aab8c6]" started-at="2021-11-19T15:29:15 EST" name="startDriver" finished-at="2021-11-19T15:29:17 EST" duration-ms="2551" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method signature="guestCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.MyFirstTestCase@693fe6c9]" started-at="2021-11-18T12:16:56 EST" name="guestCheckoutUsingDirectBankTransfer" finished-at="2021-11-18T12:17:15 EST" duration-ms="19108" status="PASS">
+        <test-method signature="guestCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@15aab8c6]" started-at="2021-11-19T15:29:17 EST" name="guestCheckoutUsingDirectBankTransfer" finished-at="2021-11-19T15:29:34 EST" duration-ms="16916" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- guestCheckoutUsingDirectBankTransfer -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.masterframework.MyFirstTestCase@693fe6c9]" started-at="2021-11-18T12:17:15 EST" name="quitDriver" finished-at="2021-11-18T12:17:15 EST" duration-ms="139" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@15aab8c6]" started-at="2021-11-19T15:29:34 EST" name="quitDriver" finished-at="2021-11-19T15:29:34 EST" duration-ms="92" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-      </class> <!-- com.masterframework.MyFirstTestCase -->
+      </class> <!-- com.masterframework.pom.tests.MyFirstTestCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -3,9 +3,11 @@ package com.masterframework.pom.pages;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import com.masterframework.pom.base.BasePage;
 import com.masterframework.pom.objects.BillingAddress;
@@ -27,6 +29,11 @@ public class CheckoutPage extends BasePage{
 	private final By passwordFld = By.id("password");
 	private final By loginBtn = By.name("login");
 	private final By overlay = By.cssSelector(".blockUI.blockOverlay");
+	
+	private final By countryDropDown = By.id("billing_country");
+	private final By stateDropDown = By.id("billing_state");
+	private final By alternateCountryDropDown = By.id("select2-billing_country-container");
+	private final By alternateStateDropDown = By.id("select2-billing_state-container");
 	
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
@@ -117,11 +124,41 @@ public class CheckoutPage extends BasePage{
 	public CheckoutPage setBillingAddress(BillingAddress billingAddress) throws InterruptedException {
 		return enterFirstName(billingAddress.getFirstname()).
 				enterLasttName(billingAddress.getLastname()).
+				selectCountry(billingAddress.getCountry()).
 				enterAddressLineOne(billingAddress.getAddressLineOne()).
 				enterCity(billingAddress.getCity()).
+				selectState(billingAddress.getState()).
 				enterPostCode(billingAddress.getPostalCode()).
 				enterEmail(billingAddress.getEmail());
 		
+	}
+	
+	public CheckoutPage selectCountry(String countryName) {
+//		Select select = new Select(wait.until(ExpectedConditions.elementToBeClickable(countryDropDown)));
+//		select.selectByVisibleText(countryName);
+		wait.until(ExpectedConditions.elementToBeClickable(alternateCountryDropDown)).click();
+        WebElement e = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//li[text()='Turkey']")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
+        e.click();
+        return this;
+//		By alternateCountryDropDown = By.id("select2-billing_country-container");
+//		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[text()='Turkey']")));
+//		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", e);
+//		e.click();
+//		return this;
+	}
+	
+	public CheckoutPage selectState(String stateName) {
+//		Select select = new Select(driver.findElement(stateDropDown));
+//		select.selectByVisibleText(stateName);
+//		return this;
+		wait.until(ExpectedConditions.elementToBeClickable(alternateStateDropDown)).click();
+        WebElement e = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//li[text()='Ankara']")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
+        e.click();
+        return this;
 	}
 
 }

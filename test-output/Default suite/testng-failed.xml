@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.masterframework.MyFirstTestCase">
+      <class name="com.masterframework.pom.tests.MyFirstTestCase">
         <methods>
-          <include name="guestCheckoutUsingDirectBankTransfer"/>
           <include name="startDriver"/>
           <include name="quitDriver"/>
+          <include name="guestCheckoutUsingDirectBankTransfer"/>
         </methods>
-      </class> <!-- com.masterframework.MyFirstTestCase -->
+      </class> <!-- com.masterframework.pom.tests.MyFirstTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
