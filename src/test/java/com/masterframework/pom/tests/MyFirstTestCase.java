@@ -18,6 +18,7 @@ import com.masterframework.pom.pages.CartPage;
 import com.masterframework.pom.pages.CheckoutPage;
 import com.masterframework.pom.pages.HomePage;
 import com.masterframework.pom.pages.StorePage;
+import com.masterframework.pom.utils.ConfigLoader;
 import com.masterframework.pom.utils.JacksonUtils;
 
 public class MyFirstTestCase extends BaseTest{
@@ -36,7 +37,7 @@ public class MyFirstTestCase extends BaseTest{
 		BillingAddress billingAddress = JacksonUtils.deserializeJson("myBillingAddress.json", BillingAddress.class);
 	    Products product = new Products(1215);
 	    
-		StorePage storePage = new HomePage(driver).
+		StorePage storePage = new HomePage(getDriver()).
 				load().
 				navigateToStoreUsingMenu().
 				search("Blue");
@@ -65,8 +66,10 @@ public class MyFirstTestCase extends BaseTest{
 		
 		BillingAddress billingAddress = JacksonUtils.deserializeJson("myBillingAddress.json", BillingAddress.class);
 	    Products product = new Products(1215);
-	    User user = new User("demousertest", "Test$123");
-		StorePage storePage = new HomePage(driver).
+	    User user = new User(ConfigLoader.getInstance().getUsername(), 
+	    		ConfigLoader.getInstance().getPassword());
+	    
+		StorePage storePage = new HomePage(getDriver()).
 				load().
 				navigateToStoreUsingMenu().
 				search("Blue");

@@ -2,20 +2,25 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-19T15:29:15 EST" name="Default suite" finished-at="2021-11-19T15:29:34 EST" duration-ms="19581">
+  <suite started-at="2021-11-21T22:22:42 EST" name="Default suite" finished-at="2021-11-21T22:23:05 EST" duration-ms="22451">
     <groups>
     </groups>
-    <test started-at="2021-11-19T15:29:15 EST" name="Default test" finished-at="2021-11-19T15:29:34 EST" duration-ms="19581">
+    <test started-at="2021-11-21T22:22:42 EST" name="Default test" finished-at="2021-11-21T22:23:05 EST" duration-ms="22451">
       <class name="com.masterframework.pom.tests.MyFirstTestCase">
-        <test-method is-config="true" signature="startDriver()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@15aab8c6]" started-at="2021-11-19T15:29:15 EST" name="startDriver" finished-at="2021-11-19T15:29:17 EST" duration-ms="2551" status="PASS">
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@41fecb8b]" started-at="2021-11-21T22:22:42 EST" name="startDriver" finished-at="2021-11-21T22:22:44 EST" duration-ms="2122" status="PASS">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method signature="guestCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@15aab8c6]" started-at="2021-11-19T15:29:17 EST" name="guestCheckoutUsingDirectBankTransfer" finished-at="2021-11-19T15:29:34 EST" duration-ms="16916" status="PASS">
+        <test-method signature="loginAndCheckoutUsingDirectBankTransfer()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@41fecb8b]" started-at="2021-11-21T22:22:44 EST" name="loginAndCheckoutUsingDirectBankTransfer" finished-at="2021-11-21T22:23:05 EST" duration-ms="20214" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- guestCheckoutUsingDirectBankTransfer -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@15aab8c6]" started-at="2021-11-19T15:29:34 EST" name="quitDriver" finished-at="2021-11-19T15:29:34 EST" duration-ms="92" status="PASS">
+        </test-method> <!-- loginAndCheckoutUsingDirectBankTransfer -->
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.masterframework.pom.tests.MyFirstTestCase@41fecb8b]" started-at="2021-11-21T22:23:05 EST" name="quitDriver" finished-at="2021-11-21T22:23:05 EST" duration-ms="92" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->

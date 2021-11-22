@@ -1,7 +1,9 @@
+com/masterframework/pom/factory/DriverManager$1.class
 com/masterframework/pom/base/BasePage.class
 com/masterframework/pom/tests/MyFirstTestCase.class
 com/masterframework/pom/utils/JacksonUtils.class
 com/masterframework/pom/objects/Products.class
+com/masterframework/pom/constants/DriverType.class
 com/masterframework/pom/objects/BillingAddress.class
 com/masterframework/pom/factory/DriverManager.class
 com/masterframework/pom/base/BaseTest.class

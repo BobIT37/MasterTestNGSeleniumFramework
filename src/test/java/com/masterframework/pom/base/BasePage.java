@@ -12,6 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.masterframework.pom.utils.ConfigLoader;
+
 public class BasePage {
 	
 	protected WebDriver driver;
@@ -25,7 +27,7 @@ public class BasePage {
 	}
 	
 	public void load(String endpoint) {
-		driver.get("https://askomdch.com" + endpoint);
+		driver.get(ConfigLoader.getInstance().getBaseUrl() + endpoint);
 	}
 	
    public void waitForOverlaysToDisappear(By overlay) {

@@ -6,19 +6,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.masterframework.pom.constants.DriverType;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManager {
 	
-	public WebDriver initializeDriver() {
+	public WebDriver initializeDriver(String browser) {
 		WebDriver driver;
-		String browser = System.getProperty("browser");
-		switch(browser) {
-			case "Chrome":
+		String localbrowser;
+		
+		switch(DriverType.valueOf(browser)) {
+			case CHROME:
 				WebDriverManager.chromedriver().cachePath("drivers").setup();
 				driver = new ChromeDriver();
 				break;
-			case "Firefox":
+			case FIREFOX:
 				WebDriverManager.firefoxdriver().cachePath("drivers").setup();
 				driver = new FirefoxDriver();
 				break;

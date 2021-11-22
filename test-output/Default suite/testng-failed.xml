@@ -5,9 +5,9 @@
     <classes>
       <class name="com.masterframework.pom.tests.MyFirstTestCase">
         <methods>
-          <include name="startDriver"/>
           <include name="quitDriver"/>
-          <include name="guestCheckoutUsingDirectBankTransfer"/>
+          <include name="startDriver"/>
+          <include name="loginAndCheckoutUsingDirectBankTransfer"/>
         </methods>
       </class> <!-- com.masterframework.pom.tests.MyFirstTestCase -->
     </classes>
