@@ -1,14 +1,15 @@
 [![N|Solid](https://bobit.us/wp-content/uploads/2021/04/bobit-logo.png)](https://bobit37.github.io/Resume/)
 
-# PMasterTestNGSeleniumFramework
+# MasterTestNGSeleniumFramework
 
 This framework is developed by using Selenium 4.0 and JDK.11
 
 All framework creation is specified in the branches step by step. If you start from section_1 branch and go through other branches, you can follow creation of the framework.
 
-## Selenium 4.0
-## JDK.11
-## TestNG 7.3.0
+## Required Technologies
+*Selenium 4.0
+*JDK.11
+*TestNG 7.3.0
 
 ## Specify project path on the terminal
 - cd project path
