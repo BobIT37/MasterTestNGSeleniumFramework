@@ -8,10 +8,10 @@
         </classes>
        
     </test>
-    <test name="Firefox" thread-count="2" parallel="methods">
+   <!--  <test name="Firefox" thread-count="2" parallel="methods">
         <parameter name="browser"  value="FIREFOX"/>
         <classes>
             <class name="com.masterframework.pom.tests.MyFirstTestCase" />
         </classes>
-    </test>
+    </test> -->
 </suite>

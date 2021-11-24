@@ -2,13 +2,24 @@ package com.masterframework.pom.utils;
 
 import java.util.Properties;
 
+import com.masterframework.pom.constants.EnvType;
+
 public class ConfigLoader {
 	
 	private final Properties properties;
     private static ConfigLoader configLoader;
     
     private ConfigLoader(){
-    	properties =PropertyUtils.propertyLoader("src/test/resources/config.properties");
+    	String env = System.getProperty("env", String.valueOf(EnvType.STAGE));
+        switch (EnvType.valueOf(env)) {
+            case STAGE: 
+            	properties = PropertyUtils.propertyLoader("src/test/resources/stg_config.properties");
+            	break;
+            case PRODUCTION: 
+            	properties = PropertyUtils.propertyLoader("src/test/resources/prod_config.properties");
+            	break;
+            default: throw new IllegalStateException("Invalid env type: " + env);
+        }
     }
     
     public static ConfigLoader getInstance(){

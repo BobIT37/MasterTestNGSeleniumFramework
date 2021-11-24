@@ -34,6 +34,11 @@ public class StorePage extends BasePage{
 		
 	}
 	
+	public StorePage load(){
+        load("/store");
+        return this;
+    }
+	
 	private StorePage clickSearchBtn() {
 		wait.until(ExpectedConditions.elementToBeClickable(searchBtn)).click();
 		return this;
