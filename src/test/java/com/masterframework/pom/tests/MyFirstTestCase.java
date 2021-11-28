@@ -34,12 +34,13 @@ public class MyFirstTestCase extends BaseTest{
 	    Products product = new Products(1215);
 	    
 		StorePage storePage = new HomePage(getDriver()).
-				load().
+				load().getMyHeader().
 				navigateToStoreUsingMenu().
 				search("Blue");
 		TimeUnit.SECONDS.sleep(5);
 		Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
-		storePage.clickAddToCartBtn(product.getName());
+		storePage.getProductThumbnail().
+				clickAddToCartBtn(product.getName());
 		CartPage cartPage = storePage.clickViewCart();
 		Assert.assertEquals(cartPage.getProductName(), product.getName());
 		CheckoutPage checkoutPage = cartPage.
@@ -66,7 +67,7 @@ public class MyFirstTestCase extends BaseTest{
 	    		ConfigLoader.getInstance().getPassword());
 	    
 		StorePage storePage = new HomePage(getDriver()).
-				load().
+				load().getMyHeader().
 				navigateToStoreUsingMenu().
 				search("Blue");
 		
@@ -86,7 +87,6 @@ public class MyFirstTestCase extends BaseTest{
 		            login(user).
 		            setBillingAddress(billingAddress).
 	                placeOrder();
-
 		Assert.assertEquals(checkoutPage.getNotice(), "Thank you. Your order has been received.");
 	}
 

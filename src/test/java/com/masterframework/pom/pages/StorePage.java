@@ -2,6 +2,7 @@ package com.masterframework.pom.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import com.masterframework.pom.pages.components.ProductThumbnail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,9 +15,15 @@ public class StorePage extends BasePage{
 	private final By searchBtn = By.cssSelector("button[value='Search']");
 	private final By title = By.cssSelector(".woocommerce-products-header__title.page-title");
 	private final By viewCartLink = By.cssSelector("a[title='View cart']");
-	
+
+	public ProductThumbnail getProductThumbnail() {
+		return productThumbnail;
+	}
+	private ProductThumbnail productThumbnail;
+
 	public StorePage(WebDriver driver) {
 		super(driver);
+		productThumbnail = new ProductThumbnail(driver);
 	}
 	
 	public boolean isLoaded() {

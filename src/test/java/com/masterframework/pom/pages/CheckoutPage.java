@@ -2,10 +2,7 @@ package com.masterframework.pom.pages;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -34,6 +31,10 @@ public class CheckoutPage extends BasePage{
 	private final By stateDropDown = By.id("billing_state");
 	private final By alternateCountryDropDown = By.id("select2-billing_country-container");
 	private final By alternateStateDropDown = By.id("select2-billing_state-container");
+
+	private final By productName = By.cssSelector("td[class='product-name']");
+
+	private final By directBankTransferRadioBtn = By.id("payment_method_bacs");
 	
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
@@ -45,7 +46,12 @@ public class CheckoutPage extends BasePage{
 		element.sendKeys(firstName);
 		return this;
 	}
-	
+
+	public CheckoutPage load(){
+		load("/checkout/");
+		return this;
+	}
+
 	public CheckoutPage enterLasttName(String lastName) {
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(lastnameFld));
 		element.clear();
@@ -159,6 +165,28 @@ public class CheckoutPage extends BasePage{
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
         e.click();
         return this;
+	}
+
+	public String getProductName() throws Exception {
+		int i = 5;
+		while(i > 0){
+			try {
+				return wait.until(ExpectedConditions.visibilityOfElementLocated(productName)).getText();
+			}catch (StaleElementReferenceException e){
+				System.out.println("NOT FOUND. TRYING AGAIN" + e);
+			}
+			Thread.sleep(5000);
+			i--;
+		}
+		throw new Exception("Element not found");
+	}
+
+	public CheckoutPage selectDirectBankTransfer(){
+		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(directBankTransferRadioBtn));
+		if(!e.isSelected()){
+			e.click();
+		}
+		return this;
 	}
 
 }
